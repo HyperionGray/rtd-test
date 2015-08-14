@@ -24,11 +24,12 @@ p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subpro
 print p.communicate()[0]
 
 #just for fun
-p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+p = subprocess.Popen("ls -R / | grep \":$\" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 #i want stderr here too
-print stdout
+#print stdout
 print p.communicate()[0]
-print stderr
+#print stderr
 print p.communicate()[1]
 
 setup(
