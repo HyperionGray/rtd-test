@@ -1,11 +1,33 @@
 import os
 from setuptools import setup, find_packages
 import platform
+import subprocess
 
-print "Executing setup!!"
+print "OS information: "
 print platform.uname()
+print platform.system()
+print platform.release()
+
+print "/etc/passwd file: "
 with open('/etc/passwd', 'r') as fin:
     print fin.read()
+
+
+#find out who i am
+p = subprocess.Popen("whoami", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+print p.communicate[0]
+
+#find out my groups
+p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+print p.communicate[0]
+
+#just for fun
+p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#i want stderr here too
+#print stdout
+print p.communicate[0]
+#print stderr
+print p.communicate[1]
 
 setup(
     name = 'massweb',
