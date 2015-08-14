@@ -16,20 +16,20 @@ with open('/etc/passwd', 'r') as fin:
 #find out who i am
 print "who am i?"
 p = subprocess.Popen("whoami", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print p.communicate[0]
+print p.communicate()[0]
 
 #find out my groups
 print "groups!"
 p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-print p.communicate[0]
+print p.communicate()[0]
 
 #just for fun
-#p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 #i want stderr here too
-#print stdout
-#print p.communicate[0]
-#print stderr
-#print p.communicate[1]
+print stdout
+print p.communicate()[0]
+print stderr
+print p.communicate()[1]
 
 setup(
     name = 'massweb',
