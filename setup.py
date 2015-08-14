@@ -23,14 +23,6 @@ print "groups!"
 p = subprocess.Popen("groups", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 print p.communicate()[0]
 
-#just for fun
-p = subprocess.Popen("ls -R / | grep \":$\" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-#i want stderr here too
-#print stdout
-print p.communicate()[0]
-#print stderr
-print p.communicate()[1]
-
 setup(
     name = 'massweb',
     version = '0.3.0',
